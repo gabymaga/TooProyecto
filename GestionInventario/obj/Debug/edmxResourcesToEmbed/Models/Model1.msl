@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DB_A41D6A_GestionInventarioModelStoreContainer" CdmEntityContainer="DB_A41D6A_GestionInventarioEntities">
+    <EntitySetMapping Name="Categorias">
+      <EntityTypeMapping TypeName="DB_A41D6A_GestionInventarioModel.Categoria">
+        <MappingFragment StoreEntitySet="Categoria">
+          <ScalarProperty Name="idCategoria" ColumnName="idCategoria" />
+          <ScalarProperty Name="nombre_cat" ColumnName="nombre_cat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Descuentoes">
+      <EntityTypeMapping TypeName="DB_A41D6A_GestionInventarioModel.Descuento">
+        <MappingFragment StoreEntitySet="Descuento">
+          <ScalarProperty Name="idDescuento" ColumnName="idDescuento" />
+          <ScalarProperty Name="monto" ColumnName="monto" />
+          <ScalarProperty Name="porcentaje" ColumnName="porcentaje" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DetalleDescuentoes">
+      <EntityTypeMapping TypeName="DB_A41D6A_GestionInventarioModel.DetalleDescuento">
+        <MappingFragment StoreEntitySet="DetalleDescuento">
+          <ScalarProperty Name="idDetalleDescuento" ColumnName="idDetalleDescuento" />
+          <ScalarProperty Name="idDescuento" ColumnName="idDescuento" />
+          <ScalarProperty Name="idMedicamento" ColumnName="idMedicamento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DetallePrivilegioRols">
+      <EntityTypeMapping TypeName="DB_A41D6A_GestionInventarioModel.DetallePrivilegioRol">
+        <MappingFragment StoreEntitySet="DetallePrivilegioRol">
+          <ScalarProperty Name="idDetalleP" ColumnName="idDetalleP" />
+          <ScalarProperty Name="idRol" ColumnName="idRol" />
+          <ScalarProperty Name="idPrivilegio" ColumnName="idPrivilegio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Empresas">
+      <EntityTypeMapping TypeName="DB_A41D6A_GestionInventarioModel.Empresa">
+        <MappingFragment StoreEntitySet="Empresa">
+          <ScalarProperty Name="idEmpresa" ColumnName="idEmpresa" />
+          <ScalarProperty Name="nombreEmpresa" ColumnName="nombreEmpresa" />
+          <ScalarProperty Name="direccion" ColumnName="direccion" />
+          <ScalarProperty Name="telefonoEmpresa" ColumnName="telefonoEmpresa" />
+          <ScalarProperty Name="nacionalidad" ColumnName="nacionalidad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Inventarios">
+      <EntityTypeMapping TypeName="DB_A41D6A_GestionInventarioModel.Inventario">
+        <MappingFragment StoreEntitySet="Inventario">
+          <ScalarProperty Name="idInventario" ColumnName="idInventario" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="idKardex" ColumnName="idKardex" />
+          <ScalarProperty Name="existencia" ColumnName="existencia" />
+          <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Kardexes">
+      <EntityTypeMapping TypeName="DB_A41D6A_GestionInventarioModel.Kardex">
+        <MappingFragment StoreEntitySet="Kardex">
+          <ScalarProperty Name="idKardex" ColumnName="idKardex" />
+          <ScalarProperty Name="detalle" ColumnName="detalle" />
+          <ScalarProperty Name="saldo" ColumnName="saldo" />
+          <ScalarProperty Name="idMedicamento" ColumnName="idMedicamento" />
+          <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Medicamentoes">
+      <EntityTypeMapping TypeName="DB_A41D6A_GestionInventarioModel.Medicamento">
+        <MappingFragment StoreEntitySet="Medicamento">
+          <ScalarProperty Name="idMedicamento" ColumnName="idMedicamento" />
+          <ScalarProperty Name="idCategoria" ColumnName="idCategoria" />
+          <ScalarProperty Name="nombreMedicamento" ColumnName="nombreMedicamento" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="fechaVencimiento" ColumnName="fechaVencimiento" />
+          <ScalarProperty Name="precioCompra" ColumnName="precioCompra" />
+          <ScalarProperty Name="precioVenta" ColumnName="precioVenta" />
+          <ScalarProperty Name="numLote" ColumnName="numLote" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Privilegios">
+      <EntityTypeMapping TypeName="DB_A41D6A_GestionInventarioModel.Privilegio">
+        <MappingFragment StoreEntitySet="Privilegio">
+          <ScalarProperty Name="idPrivilegio" ColumnName="idPrivilegio" />
+          <ScalarProperty Name="privilegio1" ColumnName="privilegio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rols">
+      <EntityTypeMapping TypeName="DB_A41D6A_GestionInventarioModel.Rol">
+        <MappingFragment StoreEntitySet="Rol">
+          <ScalarProperty Name="idRol" ColumnName="idRol" />
+          <ScalarProperty Name="idInventario" ColumnName="idInventario" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="cargo" ColumnName="cargo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuarios">
+      <EntityTypeMapping TypeName="DB_A41D6A_GestionInventarioModel.Usuario">
+        <MappingFragment StoreEntitySet="Usuario">
+          <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+          <ScalarProperty Name="idRol" ColumnName="idRol" />
+          <ScalarProperty Name="idEmpresa" ColumnName="idEmpresa" />
+          <ScalarProperty Name="nombreUsuario" ColumnName="nombreUsuario" />
+          <ScalarProperty Name="apellido" ColumnName="apellido" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

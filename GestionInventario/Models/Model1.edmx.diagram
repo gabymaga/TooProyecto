@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9fc4080042754006b5b86e8e1ff123cb" Name="Diagram1">
+        <EntityTypeShape EntityType="DB_A41D6A_GestionInventarioModel.Categoria" Width="1.5" PointX="0.75" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_A41D6A_GestionInventarioModel.Descuento" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_A41D6A_GestionInventarioModel.DetalleDescuento" Width="1.5" PointX="5.25" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_A41D6A_GestionInventarioModel.DetallePrivilegioRol" Width="1.5" PointX="12" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_A41D6A_GestionInventarioModel.Empresa" Width="1.5" PointX="12.75" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_A41D6A_GestionInventarioModel.Inventario" Width="1.5" PointX="7.5" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_A41D6A_GestionInventarioModel.Kardex" Width="1.5" PointX="5.25" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_A41D6A_GestionInventarioModel.Medicamento" Width="1.5" PointX="3" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_A41D6A_GestionInventarioModel.Privilegio" Width="1.5" PointX="9.75" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_A41D6A_GestionInventarioModel.Rol" Width="1.5" PointX="9.75" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DB_A41D6A_GestionInventarioModel.Usuario" Width="1.5" PointX="15" PointY="7" IsExpanded="true" />
+        <AssociationConnector Association="DB_A41D6A_GestionInventarioModel.fk_Categoria" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_A41D6A_GestionInventarioModel.fk_Descuento" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_A41D6A_GestionInventarioModel.fk_Medicamento" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_A41D6A_GestionInventarioModel.fk_Privilegio" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_A41D6A_GestionInventarioModel.fk_Roll" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_A41D6A_GestionInventarioModel.fk_Empresa" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_A41D6A_GestionInventarioModel.fk_Inventario" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_A41D6A_GestionInventarioModel.fk_Kardexx" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_A41D6A_GestionInventarioModel.fk_idMedicamento" ManuallyRouted="false" />
+        <AssociationConnector Association="DB_A41D6A_GestionInventarioModel.fk_Rol" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

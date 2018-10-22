@@ -1,0 +1,278 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DB_A41D6A_GestionInventarioModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Categoria">
+    <Key>
+      <PropertyRef Name="idCategoria" />
+    </Key>
+    <Property Name="idCategoria" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre_cat" Type="varchar" MaxLength="254" />
+  </EntityType>
+  <EntityType Name="Descuento">
+    <Key>
+      <PropertyRef Name="idDescuento" />
+    </Key>
+    <Property Name="idDescuento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="monto" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="porcentaje" Type="numeric" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="DetalleDescuento">
+    <Key>
+      <PropertyRef Name="idDetalleDescuento" />
+    </Key>
+    <Property Name="idDetalleDescuento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idDescuento" Type="int" Nullable="false" />
+    <Property Name="idMedicamento" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DetallePrivilegioRol">
+    <Key>
+      <PropertyRef Name="idDetalleP" />
+    </Key>
+    <Property Name="idDetalleP" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idRol" Type="int" Nullable="false" />
+    <Property Name="idPrivilegio" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Empresa">
+    <Key>
+      <PropertyRef Name="idEmpresa" />
+    </Key>
+    <Property Name="idEmpresa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombreEmpresa" Type="varchar" MaxLength="254" />
+    <Property Name="direccion" Type="varchar" MaxLength="254" />
+    <Property Name="telefonoEmpresa" Type="varchar" MaxLength="254" />
+    <Property Name="nacionalidad" Type="varchar" MaxLength="254" />
+  </EntityType>
+  <EntityType Name="Inventario">
+    <Key>
+      <PropertyRef Name="idInventario" />
+    </Key>
+    <Property Name="idInventario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fecha" Type="datetime" />
+    <Property Name="idKardex" Type="int" Nullable="false" />
+    <Property Name="existencia" Type="int" />
+    <Property Name="cantidad" Type="int" />
+  </EntityType>
+  <EntityType Name="Kardex">
+    <Key>
+      <PropertyRef Name="idKardex" />
+    </Key>
+    <Property Name="idKardex" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="detalle" Type="varchar" MaxLength="254" />
+    <Property Name="saldo" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="idMedicamento" Type="int" />
+    <Property Name="cantidad" Type="int" />
+  </EntityType>
+  <EntityType Name="Medicamento">
+    <Key>
+      <PropertyRef Name="idMedicamento" />
+    </Key>
+    <Property Name="idMedicamento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idCategoria" Type="int" Nullable="false" />
+    <Property Name="nombreMedicamento" Type="varchar" MaxLength="254" />
+    <Property Name="descripcion" Type="varchar" MaxLength="254" />
+    <Property Name="fechaVencimiento" Type="datetime" />
+    <Property Name="precioCompra" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="precioVenta" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="numLote" Type="int" />
+  </EntityType>
+  <EntityType Name="Privilegio">
+    <Key>
+      <PropertyRef Name="idPrivilegio" />
+    </Key>
+    <Property Name="idPrivilegio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="privilegio" Type="varchar" MaxLength="254" />
+  </EntityType>
+  <EntityType Name="Rol">
+    <Key>
+      <PropertyRef Name="idRol" />
+    </Key>
+    <Property Name="idRol" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idInventario" Type="int" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="254" />
+    <Property Name="cargo" Type="varchar" MaxLength="254" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="idUsuario" />
+    </Key>
+    <Property Name="idUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idRol" Type="int" Nullable="false" />
+    <Property Name="idEmpresa" Type="int" Nullable="false" />
+    <Property Name="nombreUsuario" Type="varchar" MaxLength="254" />
+    <Property Name="apellido" Type="varchar" MaxLength="254" />
+    <Property Name="Email" Type="varchar" MaxLength="254" />
+    <Property Name="telefono" Type="varchar" MaxLength="254" />
+  </EntityType>
+  <Association Name="fk_Categoria">
+    <End Role="Categoria" Type="Self.Categoria" Multiplicity="1" />
+    <End Role="Medicamento" Type="Self.Medicamento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categoria">
+        <PropertyRef Name="idCategoria" />
+      </Principal>
+      <Dependent Role="Medicamento">
+        <PropertyRef Name="idCategoria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Descuento">
+    <End Role="Descuento" Type="Self.Descuento" Multiplicity="1" />
+    <End Role="DetalleDescuento" Type="Self.DetalleDescuento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Descuento">
+        <PropertyRef Name="idDescuento" />
+      </Principal>
+      <Dependent Role="DetalleDescuento">
+        <PropertyRef Name="idDescuento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Empresa">
+    <End Role="Empresa" Type="Self.Empresa" Multiplicity="1" />
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empresa">
+        <PropertyRef Name="idEmpresa" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="idEmpresa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_idMedicamento">
+    <End Role="Medicamento" Type="Self.Medicamento" Multiplicity="0..1" />
+    <End Role="Kardex" Type="Self.Kardex" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Medicamento">
+        <PropertyRef Name="idMedicamento" />
+      </Principal>
+      <Dependent Role="Kardex">
+        <PropertyRef Name="idMedicamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Inventario">
+    <End Role="Inventario" Type="Self.Inventario" Multiplicity="1" />
+    <End Role="Rol" Type="Self.Rol" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Inventario">
+        <PropertyRef Name="idInventario" />
+      </Principal>
+      <Dependent Role="Rol">
+        <PropertyRef Name="idInventario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Kardexx">
+    <End Role="Kardex" Type="Self.Kardex" Multiplicity="1" />
+    <End Role="Inventario" Type="Self.Inventario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kardex">
+        <PropertyRef Name="idKardex" />
+      </Principal>
+      <Dependent Role="Inventario">
+        <PropertyRef Name="idKardex" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Medicamento">
+    <End Role="Medicamento" Type="Self.Medicamento" Multiplicity="1" />
+    <End Role="DetalleDescuento" Type="Self.DetalleDescuento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Medicamento">
+        <PropertyRef Name="idMedicamento" />
+      </Principal>
+      <Dependent Role="DetalleDescuento">
+        <PropertyRef Name="idMedicamento" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Privilegio">
+    <End Role="Privilegio" Type="Self.Privilegio" Multiplicity="1" />
+    <End Role="DetallePrivilegioRol" Type="Self.DetallePrivilegioRol" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Privilegio">
+        <PropertyRef Name="idPrivilegio" />
+      </Principal>
+      <Dependent Role="DetallePrivilegioRol">
+        <PropertyRef Name="idPrivilegio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Rol">
+    <End Role="Rol" Type="Self.Rol" Multiplicity="1" />
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rol">
+        <PropertyRef Name="idRol" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="idRol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_Roll">
+    <End Role="Rol" Type="Self.Rol" Multiplicity="1" />
+    <End Role="DetallePrivilegioRol" Type="Self.DetallePrivilegioRol" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rol">
+        <PropertyRef Name="idRol" />
+      </Principal>
+      <Dependent Role="DetallePrivilegioRol">
+        <PropertyRef Name="idRol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DB_A41D6A_GestionInventarioModelStoreContainer">
+    <EntitySet Name="Categoria" EntityType="Self.Categoria" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Descuento" EntityType="Self.Descuento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DetalleDescuento" EntityType="Self.DetalleDescuento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DetallePrivilegioRol" EntityType="Self.DetallePrivilegioRol" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Empresa" EntityType="Self.Empresa" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Inventario" EntityType="Self.Inventario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Kardex" EntityType="Self.Kardex" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Medicamento" EntityType="Self.Medicamento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Privilegio" EntityType="Self.Privilegio" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Rol" EntityType="Self.Rol" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="fk_Categoria" Association="Self.fk_Categoria">
+      <End Role="Categoria" EntitySet="Categoria" />
+      <End Role="Medicamento" EntitySet="Medicamento" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Descuento" Association="Self.fk_Descuento">
+      <End Role="Descuento" EntitySet="Descuento" />
+      <End Role="DetalleDescuento" EntitySet="DetalleDescuento" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Empresa" Association="Self.fk_Empresa">
+      <End Role="Empresa" EntitySet="Empresa" />
+      <End Role="Usuario" EntitySet="Usuario" />
+    </AssociationSet>
+    <AssociationSet Name="fk_idMedicamento" Association="Self.fk_idMedicamento">
+      <End Role="Medicamento" EntitySet="Medicamento" />
+      <End Role="Kardex" EntitySet="Kardex" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Inventario" Association="Self.fk_Inventario">
+      <End Role="Inventario" EntitySet="Inventario" />
+      <End Role="Rol" EntitySet="Rol" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Kardexx" Association="Self.fk_Kardexx">
+      <End Role="Kardex" EntitySet="Kardex" />
+      <End Role="Inventario" EntitySet="Inventario" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Medicamento" Association="Self.fk_Medicamento">
+      <End Role="Medicamento" EntitySet="Medicamento" />
+      <End Role="DetalleDescuento" EntitySet="DetalleDescuento" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Privilegio" Association="Self.fk_Privilegio">
+      <End Role="Privilegio" EntitySet="Privilegio" />
+      <End Role="DetallePrivilegioRol" EntitySet="DetallePrivilegioRol" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Rol" Association="Self.fk_Rol">
+      <End Role="Rol" EntitySet="Rol" />
+      <End Role="Usuario" EntitySet="Usuario" />
+    </AssociationSet>
+    <AssociationSet Name="fk_Roll" Association="Self.fk_Roll">
+      <End Role="Rol" EntitySet="Rol" />
+      <End Role="DetallePrivilegioRol" EntitySet="DetallePrivilegioRol" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

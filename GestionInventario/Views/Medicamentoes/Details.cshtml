@@ -1,0 +1,75 @@
+﻿@model GestionInventario.Models.Medicamento
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Medicamento</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nombreMedicamento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombreMedicamento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fechaVencimiento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fechaVencimiento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.precioCompra)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.precioCompra)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.precioVenta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.precioVenta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.numLote)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.numLote)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Categoria.nombre_cat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Categoria.nombre_cat)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idMedicamento }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,70 @@
+﻿@model IEnumerable<GestionInventario.Models.Medicamento>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.nombreMedicamento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fechaVencimiento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.precioCompra)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.precioVenta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.numLote)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Categoria.nombre_cat)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombreMedicamento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fechaVencimiento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.precioCompra)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.precioVenta)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.numLote)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Categoria.nombre_cat)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.idMedicamento }) |
+            @Html.ActionLink("Details", "Details", new { id=item.idMedicamento }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.idMedicamento })
+        </td>
+    </tr>
+}
+
+</table>
